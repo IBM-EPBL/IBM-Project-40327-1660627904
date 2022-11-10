@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devnews</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+               <li><a href="{{url_for('home')}}">Home</a></li>
+               <li class="sec_nav"><a href="">Advertise</a></li>
+               <li><a href="{{url_for('register')}}">Register</a></li>
+               <li><a href="{{url_for('login')}}">Login</a></li> 
+            </ul>
+        </nav>
+    </header>
+    <section id="sss1">
+        <h1 class="two" ><span style="color:rgb(255, 63, 63);background-color: whitesmoke;margin-left: 30px;padding-left: 20px;padding-right: 20px;">Dev</span> News</h1>
+        <div id="ss1">
+            <input class="input_search" type="text" placeholder="Search News" >
+            <button class="button_search">Search</button>
+        </div>
+    </section>
+    <section id="advertise1">
+         <img style="position: absolute;top:150px;left:20px;" src="/static/img/ad1.jpg" alt=""height="100"width="1480">
+    </section>
+    <section id="main">
+        <br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class = "head">TODAY'S TOP HEADLINES</div>
+        <br>
+        {% for title,desc,img,p_date,url in contents %}
+        <div class="wrapper">
+            <div class="item" height="250"width="430"><a href=""><img src="{{img}}"></a></div>
+            <div class = "c-box">
+            <div class="content"><a href=""><h2>{{title}}</h2></a></div>
+            <div class="content"><a href=""><p>{{desc}}</p></a></div>
+            <div class="content"><p>Publish Date:- </p><p>{{p_date}}</p></div>
+            </div>
+            </div> 
+        {% endfor %}  
+        <br><br>
+        <div class = "head">TODAY'S NEWS</div>
+        {% for title,desc,img,p_date,url in all %}
+        <div class="wrapper">
+            <div class="item"><a href=""><img src="{{img}}"></a></div>
+            <div class = "c-box">
+            <div class="content"><a href=""><h2>{{title}}</h2></a></div>
+            <div class="content"><p>{{desc}}</p></div>
+            <div class="content"><p>Publish Date:- </p><p> {{p_date}} </p></div>
+            </div>
+            </div> 
+        {% endfor %}
+    </section>
+    <footer>
+        <center><h3>copyrights reserved</h3></center>
+    </footer>
+</body>
+</html>
